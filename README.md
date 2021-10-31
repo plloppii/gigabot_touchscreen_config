@@ -2,10 +2,10 @@ Fullpageos_modifications to get running on HMTech Display with fluidd
 Fullpage OS uses Lightdm (Light Display Manager)
 
 ## Disable Scrollbar
-Add ``` --enable-features=OverlayScrollbar ``` to starting chromium script
+Add ``` --enable-features=OverlayScrollbar ``` to starting chromium script, ```~/scripts/start_chromium_browser```
 
 ### Disable Cursor
-Append ``` --enable-features=OverlayScrollbar``` to ```/usr/share/lightdm/lightdm.conf.d/01_debian.conf```
+Append ```xserver-command=X -nocursor``` to ```/usr/share/lightdm/lightdm.conf.d/01_debian.conf```
 
 ## Add Keyboard Extension to Chromium
 Copy ```.config ``` to home directory of pi
