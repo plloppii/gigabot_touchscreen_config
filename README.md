@@ -1,5 +1,6 @@
 Fullpageos_modifications to get running on HMTech Display with fluidd
-Fullpage OS uses Lightdm (Light Display Manager)
+System Package Dependencies ontop of FullpageOS:
+xinput
 
 ## Disable Scrollbar
 Add ``` --enable-features=OverlayScrollbar ``` to starting chromium script, ```~/scripts/start_chromium_browser```
