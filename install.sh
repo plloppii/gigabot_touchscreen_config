@@ -47,4 +47,8 @@ check_and_overwrite $FULLPAGEOS_SCRIPT_PATH/start_chromium_browser $PWD/start_ch
 # fi
 
 # Fluidd + Moonraker + Klipper Installation 
+
+sudo -i -u pi bash << EOF
+whoami
 cd $HOME && git clone https://github.com/th33xitus/kiauh.git
+EOF
