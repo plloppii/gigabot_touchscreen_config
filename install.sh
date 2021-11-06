@@ -22,6 +22,7 @@ check_and_overwrite $BOOT_PATH/cmdline.txt $PWD/cmdline.txt
 # Display KMS setup
 check_and_overwrite $BOOT_PATH/config.txt $PWD/config.txt
 check_and_overwrite $BOOT_PATH/fullpageos.txt $PWD/fullpageos.txt
+check_and_overwrite $BOOT_PATH/splash.png $PWD/splash.png
 
 LIGHTDM_CONFIG_PATH="/etc/lightdm"
 # Enable xrandr script on boot
@@ -30,8 +31,9 @@ check_and_overwrite $LIGHTDM_CONFIG_PATH/lightdm.conf $PWD/lightdm.conf
 check_and_overwrite "/usr/share/lightdm/lightdm.conf.d/01_debian.conf" $PWD/01_debian.conf
 
 apt-get install xinput -y
-FULLPAGEOS_SCRIPT_PATH="$PWD/scripts"
+FULLPAGEOS_SCRIPT_PATH="$HOME/scripts"
 check_and_overwrite $FULLPAGEOS_SCRIPT_PATH/start_chromium_browser $PWD/start_chromium_browser
+
 
 # TODO: Debug enabling keyboard extension
 # echo "comparing chromium configs"
