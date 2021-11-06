@@ -18,7 +18,7 @@ function check_and_overwrite {
 
 BOOT_PATH="/boot"
 # Boot cmdline setup
-check_and_overwrite $BOOT_PATH/cmdline.txt $PWD/cmdline.txt
+# check_and_overwrite $BOOT_PATH/cmdline.txt $PWD/cmdline.txt #DO NOT USE, PARTUUID IS DIFFERENT AND WILL BRICK
 # Display KMS setup
 check_and_overwrite $BOOT_PATH/config.txt $PWD/config.txt
 check_and_overwrite $BOOT_PATH/fullpageos.txt $PWD/fullpageos.txt
@@ -52,3 +52,6 @@ sudo -i -u pi bash << EOF
 whoami
 cd $HOME && git clone https://github.com/th33xitus/kiauh.git
 EOF
+
+
+# Overwrite /etc/systemd/system/webcamd.service and disable reboot file
