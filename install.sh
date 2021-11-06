@@ -14,6 +14,26 @@ function check_and_overwrite {
     fi
 }
 
+# System Setup
+
+BOOT_PATH="/boot"
+# Boot cmdline setup
+check_and_overwrite $BOOT_PATH/cmdline.txt $PWD/cmdline.txt
+# Display KMS setup
+check_and_overwrite $BOOT_PATH/config.txt $PWD/config.txt
+check_and_overwrite $BOOT_PATH/fullpageos.txt $PWD/fullpageos.txt
+
+LIGHTDM_CONFIG_PATH="/etc/lightdm"
+# Enable xrandr script on boot
+check_and_overwrite $LIGHTDM_CONFIG_PATH/lightdm.conf $PWD/lightdm.conf
+# Disable Cursor
+check_and_overwrite "/usr/share/lightdm/lightdm.conf.d/01_debian.conf" $PWD/01_debian.conf
+
+apt-get install xinput -y
+FULLPAGEOS_SCRIPT_PATH="$PWD/scripts"
+check_and_overwrite $FULLPAGEOS_SCRIPT_PATH/start_chromium_browser $PWD/start_chromium_browser
+
+# TODO: Debug enabling keyboard extension
 # echo "comparing chromium configs"
 # diff -r $HOME/.config $PWD/.config
 # if [ $? -ne 0 ]; then
@@ -24,12 +44,11 @@ function check_and_overwrite {
 #     echo "chromium .config symlink exists, skipping..."
 # fi
 
-BOOT_PATH="/boot"
-check_and_overwrite $BOOT_PATH/cmdline.txt $PWD/cmdline.txt
-check_and_overwrite $BOOT_PATH/config.txt $PWD/config.txt
+# Fluidd + Moonraker + Klipper Installation 
+git clone https://github.com/th33xitus/kiauh.git $HOME
 
-LIGHTDM_CONFIG_PATH="/etc/lightdm"
-check_and_overwrite $LIGHTDM_CONFIG_PATH/lightdm.conf $PWD/lightdm.conf
+
+
 
 
 
