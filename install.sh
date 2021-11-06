@@ -37,6 +37,10 @@ check_and_overwrite $FULLPAGEOS_SCRIPT_PATH/start_chromium_browser $PWD/start_ch
 sudo -i -u pi bash << EOF
 whoami
 cd $HOME
-git clone https://github.com/th33xitus/kiauh.git
-git clone https://github.com/plloppii/virtual_keyboard.git
+if [ ! -d "$HOME/kiauh" ] ; then
+    git clone https://github.com/th33xitus/kiauh.git
+fi
+if [ ! -d "$HOME/virtual_keyboard" ] ; then
+    git clone https://github.com/plloppii/virtual_keyboard.git
+fi
 EOF
