@@ -17,8 +17,6 @@ function check_and_overwrite {
 # System Setup
 
 BOOT_PATH="/boot"
-# Boot cmdline setup
-# check_and_overwrite $BOOT_PATH/cmdline.txt $PWD/cmdline.txt #DO NOT USE, PARTUUID IS DIFFERENT AND WILL BRICK
 # Display KMS setup
 check_and_overwrite $BOOT_PATH/config.txt $PWD/config.txt
 check_and_overwrite $BOOT_PATH/fullpageos.txt $PWD/fullpageos.txt
@@ -34,24 +32,11 @@ apt-get install xinput -y
 FULLPAGEOS_SCRIPT_PATH="$HOME/scripts"
 check_and_overwrite $FULLPAGEOS_SCRIPT_PATH/start_chromium_browser $PWD/start_chromium_browser
 
-
-# TODO: Debug enabling keyboard extension
-# echo "comparing chromium configs"
-# diff -r $HOME/.config $PWD/.config
-# if [ $? -ne 0 ]; then
-#     echo "chromium configs are different, creating symlink"
-#     rm -r $HOME/.config
-#     ln -s gigabot_touchscreen_config/.config/ $HOME/.config
-# else
-#     echo "chromium .config symlink exists, skipping..."
-# fi
-
 # Fluidd + Moonraker + Klipper Installation 
 
 sudo -i -u pi bash << EOF
 whoami
-cd $HOME && git clone https://github.com/th33xitus/kiauh.git
+cd $HOME
+git clone https://github.com/th33xitus/kiauh.git
+git clone https://github.com/plloppii/virtual_keyboard.git
 EOF
-
-
-# Overwrite /etc/systemd/system/webcamd.service and disable reboot file
