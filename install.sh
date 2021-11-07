@@ -1,5 +1,23 @@
 #!/bin/bash 
 
+usage() {
+  cat << EOF # remove the space between << and EOF, this is due to web plugin issue
+Usage: $(basename "${BASH_SOURCE[0]}") [bedsize]
+
+Enter 1-4 Depending on size of bot you are installing on
+    1) Regular
+    2) XLT
+    3) Terabot
+    4) Exabot
+EOF
+  exit
+}
+
+if [ -z "$1" ]
+then
+	usage
+fi
+
 PWD="$(cd "$(dirname "$0")" && pwd)"
 HOME=$PWD/..
 
@@ -38,9 +56,22 @@ sudo -i -u pi bash << EOF
 whoami
 cd $HOME
 if [ ! -d "$HOME/kiauh" ] ; then
-    git clone https://github.com/th33xitus/kiauh.git
+    git clone https://github.com/plloppii/kiauh.git
 fi
 if [ ! -d "$HOME/virtual_keyboard" ] ; then
     git clone https://github.com/plloppii/virtual_keyboard.git
 fi
+if [ ! -d "$HOME/klipper_config" ] ; then
+    git clone https://github.com/plloppii/klipper_config.git
+fi
+.$HOME/klipper_config/get_bedsize.sh 1
+
+cd $PWD
+./install_klipper.exp
+./install_moonraker.exp
+./install_fluidd.exp
+./install_gcode_shell_cmd.exp
 EOF
+
+# ssh into pi
+# Enable plugin by going to new chromium tab, and enabling dev mode and add unpacked extension
