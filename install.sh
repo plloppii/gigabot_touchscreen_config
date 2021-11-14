@@ -64,7 +64,8 @@ fi
 if [ ! -d "$HOME/klipper_config" ] ; then
     git clone https://github.com/plloppii/klipper_config.git
 fi
-.$HOME/klipper_config/get_bedsize.sh 1
+
+cd $HOME/klipper_config && ./get_bedsize.sh 1
 
 cd $PWD
 ./install_klipper.exp
