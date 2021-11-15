@@ -65,13 +65,12 @@ if [ ! -d "$HOME/klipper_config" ] ; then
     git clone https://github.com/plloppii/klipper_config.git
 fi
 
-cd $HOME/klipper_config && ./get_bedsize.sh 1
+cd $HOME/klipper_config && ./setup_printer.sh 1
 
 cd $PWD
 ./install_klipper.exp
 ./install_moonraker.exp
 ./install_fluidd.exp
-./install_gcode_shell_cmd.exp
 EOF
 
 # ssh into pi
