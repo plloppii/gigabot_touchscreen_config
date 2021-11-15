@@ -39,6 +39,8 @@ BOOT_PATH="/boot"
 check_and_overwrite $BOOT_PATH/config.txt $PWD/config.txt
 check_and_overwrite $BOOT_PATH/fullpageos.txt $PWD/fullpageos.txt
 check_and_overwrite $BOOT_PATH/splash.png $PWD/splash.png
+#Stop logging over serial
+sed -i "s/console=serial0,115200//g" $BOOT_PATH/cmdline.txt 
 
 LIGHTDM_CONFIG_PATH="/etc/lightdm"
 # Enable xrandr script on boot
