@@ -72,7 +72,7 @@ cd $HOME/klipper_config && ./setup_printer.sh 1
 cd $PWD
 ./install_klipper.exp
 ./install_moonraker.exp
-./install_fluidd.exp
+./install_mainsail.exp
 EOF
 
 # ssh into pi
