@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-apt-get install usbmount
+apt-get install usbmount -y
 
 # Set up the scripts that configure the 'usbmount' package, which will
 # mount any recognized filesystem when a USB thumb drive is inserted.
@@ -24,7 +24,4 @@ chmod 644 /etc/usbmount/usbmount.conf
 cp usb/systemd-udevd.service /lib/systemd/system/systemd-udevd.service
 chmod 644 /lib/systemd/system/systemd-udevd.service
 
-# Make the directory we're going to use to contain symbolic links to
-# mounted thumb drives.
-mkdir /usb
-chown root:root /usb
+# We are going to mount the usb to the ~/gcode_files file of klipper.

@@ -21,8 +21,8 @@ ls /var/run/usbmount | while read name; do
 done
 
 ls /usb | while read name; do
-    if test "`readlink \"/usb/$name\" || :`" = "$UM_MOUNTPOINT"; then
-	rm -f "/usb/$name"
+    if test "`readlink \"~/gcode_files/$name\" || :`" = "$UM_MOUNTPOINT"; then
+	rm -f "~/gcode_files/$name"
 	break
     fi
 done
