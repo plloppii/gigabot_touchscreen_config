@@ -95,4 +95,4 @@ cd $HOME/klipper_config && ./setup_printer.sh $1
 EOF
 
 service moonraker restart
-./setup-usbmount.sh
+bash $PWD/setup-usbmount.sh
