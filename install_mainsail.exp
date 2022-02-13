@@ -43,7 +43,7 @@ if {$force_conservative} {
 
 
 set timeout -1
-spawn ./kiauh/kiauh.sh
+spawn /home/pi/kiauh/kiauh.sh
 match_max 100000
 expect -exact "\[96mPerform action:\[39m "
 send -- "1\r"
