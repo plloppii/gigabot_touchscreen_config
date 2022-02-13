@@ -77,8 +77,22 @@ cd $PWD
 ./install_moonraker.exp
 ./install_mainsail.exp
 
+cd $HOME/moonraker/scripts
+./set-policykit-rules.sh
+
+cd $HOME/klipper
+git remote set-url origin https://github.com/re3Dprinting/klipper.git
+git pull
+git reset --hard origin/master
+
+cd $HOME/moonraker
+git remote set-url origin https://github.com/re3Dprinting/moonraker.git
+git pull
+git reset --hard origin/master
+
 cd $HOME/klipper_config && ./setup_printer.sh $1
 
 EOF
 
+service moonraker restart
 ./setup-usbmount.sh
