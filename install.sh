@@ -53,12 +53,10 @@ check_and_overwrite $LIGHTDM_CONFIG_PATH/lightdm.conf $PWD/lightdm.conf
 # Disable Cursor
 check_and_overwrite "/usr/share/lightdm/lightdm.conf.d/01_debian.conf" $PWD/01_debian.conf
 
-apt-get install xinput ripgrep nmap -y
 FULLPAGEOS_SCRIPT_PATH="$HOME/scripts"
 check_and_overwrite $FULLPAGEOS_SCRIPT_PATH/start_chromium_browser $PWD/start_chromium_browser
 
 # Fluidd + Moonraker + Klipper Installation 
-
 sudo -i -u pi bash << EOF
 whoami
 cd $HOME
@@ -96,3 +94,5 @@ EOF
 
 service moonraker restart
 bash $PWD/setup-usbmount.sh
+apt-get install xinput ripgrep nmap -y
+
