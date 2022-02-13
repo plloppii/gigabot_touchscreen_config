@@ -53,7 +53,7 @@ check_and_overwrite $LIGHTDM_CONFIG_PATH/lightdm.conf $PWD/lightdm.conf
 # Disable Cursor
 check_and_overwrite "/usr/share/lightdm/lightdm.conf.d/01_debian.conf" $PWD/01_debian.conf
 
-apt-get install xinput -y
+apt-get install xinput ripgrep nmap -y
 FULLPAGEOS_SCRIPT_PATH="$HOME/scripts"
 check_and_overwrite $FULLPAGEOS_SCRIPT_PATH/start_chromium_browser $PWD/start_chromium_browser
 
@@ -72,13 +72,13 @@ if [ ! -d "$HOME/klipper_config" ] ; then
     git clone https://github.com/plloppii/klipper_config.git
 fi
 
-cd $HOME/klipper_config && ./setup_printer.sh 1
-
 cd $PWD
 ./install_klipper.exp
 ./install_moonraker.exp
 ./install_mainsail.exp
+
+cd $HOME/klipper_config && ./setup_printer.sh $1
+
 EOF
 
-# ssh into pi
-# Enable plugin by going to new chromium tab, and enabling dev mode and add unpacked extension
+./setup-usbmount.sh
