@@ -4,11 +4,14 @@ usage() {
   cat << EOF # remove the space between << and EOF, this is due to web plugin issue
 Usage: $(basename "${BASH_SOURCE[0]}") [bedsize]
 
-Enter 1-4 Depending on size of bot you are installing on
+[bedsize]
     1) Regular
     2) XLT
     3) Terabot
     4) Exabot
+[-d]
+    puts bot into development mode. klipper, moonraker, mainsail will be placed on develop branches
+    This should be used only for internal bots. 
 EOF
   exit
 }
@@ -92,7 +95,6 @@ cd $HOME/klipper_config && ./setup_printer.sh $1
 
 EOF
 
-service moonraker restart
 bash $PWD/setup-usbmount.sh
 apt-get install xinput ripgrep nmap -y
-
+reboot
