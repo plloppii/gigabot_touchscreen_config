@@ -99,4 +99,8 @@ EOF
 
 bash $PWD/setup-usbmount.sh
 apt-get install xinput ripgrep nmap -y
+
+sudo cp wifi/scan_wifi.service /etc/systemd/system/scan_wifi.service
+sudo chmod 644 /etc/systemd/system/scan_wifi.service
+
 reboot
