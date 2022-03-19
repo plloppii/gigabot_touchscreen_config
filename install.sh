@@ -91,7 +91,9 @@ git remote set-url origin https://github.com/re3Dprinting/moonraker.git
 git pull
 git reset --hard origin/master
 
-cd $HOME/klipper_config && ./setup_printer.sh $1
+cd $HOME/klipper_config
+git checkout fff
+./setup_printer.sh -b $1
 
 EOF
 
