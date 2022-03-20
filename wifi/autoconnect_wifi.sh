@@ -1,7 +1,5 @@
 #!/bin/bash 
 
-set -e
-
 out=/tmp/autoconnect_wifi.out
 env > $out
 
