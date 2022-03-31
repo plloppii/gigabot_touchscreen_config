@@ -73,6 +73,10 @@ if [ ! -d "$HOME/klipper_config" ] ; then
     git clone https://github.com/plloppii/klipper_config.git
 fi
 
+# Reset to a particular hash for kiauh so future commits do not break exp script
+cd $HOME/kiauh
+git reset --hard dd58229fee250ffdc7a08b3b0b245fa4ffda8ea0
+
 cd $PWD
 ./install_klipper.exp
 ./install_moonraker.exp
