@@ -94,12 +94,15 @@ git reset --hard origin/master
 cd $HOME/klipper_config
 git checkout fff
 ./setup_printer.sh -b $1
-
 EOF
 
-bash $PWD/setup-usbmount.sh
+#Install os packages
 apt-get install xinput ripgrep nmap -y
 
+#Set up usbmount service
+bash $PWD/usb/setup-usbmount.sh
+
+#Set up wifi scanning service 
 sudo cp $PWD/wifi/scan_wifi.service /etc/systemd/system/scan_wifi.service
 sudo chmod 644 /etc/systemd/system/scan_wifi.service
 sudo systemctl enable scan_wifi.service
