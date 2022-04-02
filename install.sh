@@ -111,4 +111,9 @@ sudo cp $PWD/wifi/scan_wifi.service /etc/systemd/system/scan_wifi.service
 sudo chmod 644 /etc/systemd/system/scan_wifi.service
 sudo systemctl enable scan_wifi.service
 
+#Set up klipper_config as a service
+sudo cp $PWD/klipper/klipper_config.service /etc/systemd/system/klipper_config.service
+sudo chmod 644 /etc/systemd/system/klipper_config.service
+sudo systemctl enable klipper_config.service
+
 reboot
