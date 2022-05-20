@@ -82,6 +82,8 @@ cd $PWD
 ./install_moonraker.exp
 ./install_mainsail.exp
 
+cp ./moonraker_secrets.ini $HOME
+
 cd $HOME/moonraker/scripts
 ./set-policykit-rules.sh
 
