@@ -5,7 +5,7 @@ Type=idle
 [Service]
 User=root
 WorkingDirectory=/home/pi/klipper_config/scripts
-ExecStart=/usr/bin/python3 /home/pi/gigabot_touchscreen_config/klipper/reload.py --first-boot
+ExecStart=su - pi -c "/usr/bin/python3 /home/pi/gigabot_touchscreen_config/klipper/reload.py --first-boot"
 
 [Install]
 WantedBy=multi-user.target
