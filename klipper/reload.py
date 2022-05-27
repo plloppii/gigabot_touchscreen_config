@@ -3,7 +3,7 @@ import sys, requests, json, os, subprocess, configparser, time
 from pathlib import Path
 
 if len(sys.argv) > 1 and sys.argv[1] == "--first-boot":
-    time.sleep(5)
+    time.sleep(20)
 
 url = "http://localhost"
 home_path = Path(__file__).parent.resolve().parent.parent
