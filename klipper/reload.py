@@ -63,8 +63,8 @@ def klipper_dependency_analyze():
 
 def reboot_services():
     os.system("service moonraker restart")
-    # os.system("service klipper restart")
-    # os.system("service lightdm restart")
+    os.system("service klipper restart")
+    os.system("service lightdm restart")
 
 def main():
     wait_on_moonraker()
