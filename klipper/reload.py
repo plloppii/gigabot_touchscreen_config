@@ -12,7 +12,11 @@ klipper_config_scripts = klipper_config_path / "scripts"
 master_config_path = klipper_config_path / ".master.cfg"
 
 def wait_on_moonraker():
-    requests.get(url + "/server/database/list", verify=False, timeout=20)
+    from requests.adapters import HTTPAdapter, Retry
+    s = requests.Session()
+    retries = Retry(total=5, backoff_factor=1, status_forcelist=[ 502, 503, 504 ])
+    s.mount('http://', HTTPAdapter(max_retries=retries))
+    s.get(url + "/server/database/list")
 
 #Reloading serial script, Import script directly to run it.
 def trigger_setup_printer():
@@ -58,13 +62,12 @@ def klipper_dependency_analyze():
 # check out Moonraker, Klipper, klipper_config develop branches if set to develop
 
 def reboot_services():
-    os.system("service klipper restart")
     os.system("service moonraker restart")
-    os.system("service lightdm restart")
+    # os.system("service klipper restart")
+    # os.system("service lightdm restart")
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] == "--first-boot":
-        time.sleep(20)
+    wait_on_moonraker()
 
     trigger_setup_printer()
     reload_ui()
