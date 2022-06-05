@@ -49,6 +49,13 @@ def reload_ui():
         print(post_response.text)
 
 def klipper_dependency_analyze():
+    try:
+        request = requests.get("http://www.google.com", timeout=5)
+        print("Network Available")
+    except:
+        print("Network Unavailable, skipping dependency checking")
+        return False
+
     master_config = configparser.ConfigParser(inline_comment_prefixes="#")
     master_config.read(str(master_config_path))
     printer_config = master_config["re3D"]
