@@ -99,7 +99,7 @@ git reset --hard origin/master
 
 cd $HOME/klipper_config
 git checkout fff
-./setup_printer.sh -b $1
+./scripts/setup_printer.py
 EOF
 
 #Install os packages
