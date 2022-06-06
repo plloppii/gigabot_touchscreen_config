@@ -21,11 +21,6 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-if [ -z "$1" ]
-then
-	usage
-fi
-
 PWD="$(cd "$(dirname "$0")" && pwd)"
 HOME=$PWD/..
 
