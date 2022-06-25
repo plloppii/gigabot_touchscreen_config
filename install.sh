@@ -98,7 +98,10 @@ git checkout fff
 EOF
 
 #Install os packages
-apt-get install xinput ripgrep nmap -y
+apt-get install xinput ripgrep nmap python3-pip -y
+
+#Install python packages
+pip3 install GitPython
 
 #Set up usbmount service
 bash $PWD/usb/setup-usbmount.sh
