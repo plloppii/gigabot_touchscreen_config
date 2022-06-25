@@ -62,10 +62,10 @@ if [ ! -d "$HOME/kiauh" ] ; then
     git clone https://github.com/plloppii/kiauh.git
 fi
 if [ ! -d "$HOME/virtual_keyboard" ] ; then
-    git clone https://github.com/plloppii/virtual_keyboard.git
+    git clone https://github.com/re3Dprinting/virtual_keyboard.git
 fi
 if [ ! -d "$HOME/klipper_config" ] ; then
-    git clone https://github.com/plloppii/klipper_config.git
+    git clone https://github.com/re3Dprinting/klipper_config.git
 fi
 
 # Reset to a particular hash for kiauh so future commits do not break exp script
